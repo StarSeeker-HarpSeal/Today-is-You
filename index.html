@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘은 너다</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bulbs" aria-hidden="true"></div>
+
+<!-- ============ SCREEN 1 : 설정 ============ -->
+<section id="screen-setup" class="screen active">
+  <header class="marquee">
+    <h1>오늘은<span>너다</span></h1>
+    <p class="sub">커피값 결정 슬롯머신<span class="en">Coffee Bill Decider</span></p>
+  </header>
+
+  <div class="mode-tabs" role="tablist">
+    <button class="mode-tab active" data-mode="solo" role="tab">혼자내기<span class="en">Solo</span></button>
+    <button class="mode-tab" data-mode="split" role="tab">나눠내기<span class="en">Split</span></button>
+  </div>
+
+  <div class="panel">
+    <label class="panel-label">참가자<span class="en">Participants</span></label>
+    <ul id="name-list" class="name-list"></ul>
+    <button id="add-name-btn" class="ghost-btn">+ 참가자 추가 <span style="opacity:.7">Add</span></button>
+
+    <div id="amount-wrap" class="amount-wrap hidden">
+      <label class="panel-label" for="total-amount">오늘 총금액<span class="en">Total Amount</span></label>
+      <div class="amount-input-row">
+        <input type="number" id="total-amount" placeholder="예: 15000 · e.g. 15000" min="0" step="100">
+        <span class="won">원</span>
+      </div>
+    </div>
+
+    <p id="setup-warning" class="warning hidden"></p>
+
+    <button id="start-btn" class="main-btn">주문하기<small>Start</small></button>
+  </div>
+</section>
+
+<!-- ============ SCREEN 2 : 슬롯머신 ============ -->
+<section id="screen-slot" class="screen">
+  <header class="marquee small">
+    <h2 id="slot-title">두구두구두구</h2>
+    <span class="en" id="slot-subtitle">Drumroll...</span>
+  </header>
+
+  <div id="reel-track" class="reel-track"></div>
+
+  <button id="next-btn" class="main-btn hidden">결과 확인<small>Check Result</small></button>
+  <button id="retry-btn" class="ghost-btn hidden">처음으로 <span style="opacity:.7">Restart</span></button>
+</section>
+
+<!-- ============ SCREEN 3 : 나눠내기 최종결과 ============ -->
+<section id="screen-result" class="screen">
+  <header class="marquee small">
+    <h2>최종 정산 영수증</h2>
+    <span class="en">Final Settlement</span>
+  </header>
+
+  <div id="result-table" class="result-table"></div>
+
+  <button id="restart-btn" class="main-btn">다시 하기<small>Try Again</small></button>
+</section>
+
+<script src="logic.js"></script>
+<script src="slot.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
